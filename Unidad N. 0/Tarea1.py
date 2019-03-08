@@ -63,7 +63,7 @@ print(z)
 
 # a) listas
 
-x = np.array([0.3, -5.31, -1, -9, 10, 0, 18, 90])
+x = np.array([0, 3, -5, 31, -1, -9, 10, 0, 18, 90])
 y = np.array([9, 1, 1, -3, 1, -99, -10, 10, -7, -1])
 
 # b) Calcule la media, la varianza y la desviacion estandar de y.
@@ -85,3 +85,20 @@ desviacionEstX = np.std(x)
 print("Media de X: " + str(mediaX))
 print("Varianza de X: " + str(varianzaX))
 print("Desviacion estandar de X: " + str(desviacionEstX))
+
+# c) Calcule la correlacion entre 'x' y 'y'.
+
+corr = np.correlate(x, y)
+print("La correlacion entre 'x' y 'y' es: " + str(corr[0]))
+
+# d) Extraer los valores en los ´ındices del 2 al 7 de x
+
+res = x[2:8]
+print(res)
+
+# e) Extraer los valores de y excepto los situados en los ındices 2 y 7
+
+res = np.delete(y, [2,7])
+
+print(res)
+print(y)
