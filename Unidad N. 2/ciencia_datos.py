@@ -2,6 +2,7 @@
 Modulo de funciones de ciencia de datos
 @autor Jose Manuel Carrillo
 """
+import numpy as np
 
 def obtenerMayor(a ,b):
     """Devuelve el numero mayor de dos argumentos, si son iguales devuelve None
@@ -85,11 +86,35 @@ def sumatoriaMult3(n):
             sum += i
     return sum
 
-def randomRango(cantidad, entre, ):
-    """Genera una cantidad de numeros al azar y devuelve
+def randomRango():
+    """Genera 2000 numeros al azar entre 5000 y 2000 y devuelve los que esten entre 1500 y 4000
+    
+    Returns:
+        rand {list}
+    """
+    rand = np.random.randint(1, 5000, 2000)
+
+    return rand[(rand >= 1500) & (rand <= 4000)]
+
+def promedio(lista):
+    """devuelve el promedio de una lista dada
     
     Arguments:
-        bajo {[type]} -- [description]
-        alto {[type]} -- [description]
-        cantidad {[type]} -- [description]
+        lista {list} -- Lista de numeros enteros
+    Returns:
+        promedio {float}
     """
+    sum = 0
+    for n in lista:
+        sum += n
+
+    return sum/len(lista)   
+
+def varianza(lista)
+    """devuelve la varianza de una lista\
+    
+    Arguments:
+    lista {}
+    """
+
+    
