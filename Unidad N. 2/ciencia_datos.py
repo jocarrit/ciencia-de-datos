@@ -3,6 +3,7 @@ Modulo de funciones de ciencia de datos
 @autor Jose Manuel Carrillo
 """
 import numpy as np
+import pandas as pd
 
 def obtenerMayor(a ,b):
     """Devuelve el numero mayor de dos argumentos, si son iguales devuelve None
@@ -110,11 +111,94 @@ def promedio(lista):
 
     return sum/len(lista)   
 
-def varianza(lista)
+def varianza(lista):
     """devuelve la varianza de una lista\
     
     Arguments:
-    lista {}
+    lista {list}
+
+    Returns:
+    varianza {int}
     """
+    prom = promedio(lista)
+    return promedio([(i - prom)**2 for i in lista])
+
+def costoLlamada(t):
+    """devuelve el costo de la llamada en funcion de t
+    
+    Arguments:
+    t {int}
+    Returns:
+    costo {int}
+    """    
+
+    if (t < 1):
+        return 0.4
+    else:
+        return 0.4 + (t -1)/4
+
+def porcenjeMayores(lista, referencia):
+    """devuelve el porcentaje de numeros mayores a la referencia, con base a una lista de numeros enteros
+
+    Arguments:
+    lista {list}
+    referencia {int}
+
+    Returns:
+    porcentaje {float}
+    """
+
+    contador = 0
+
+    for i in lista:
+        if i >= referencia:
+            contador += 1
+        
+    return (contador/len(lista))*100
+
+def numNatural(n):
+    """construye un vector de longitud n y lo llena con numeros naturales pasados por una formula
+    
+    Arguments:
+        n {[int]} 
+    Returns:
+        k {list}
+    """
+    k = []
+    for i in range(1, n):
+        k.append(((i - 1)/3) + 0.5)
+    
+    return k
+
+def traza(m):
+    """Calcula la traza de una matriz
+    
+    Arguments:
+        m {[array]} 
+    
+    Returns:
+        [int] 
+    """
+
+    return np.trace(m)
+
+def cantPares(DF):
+    """Devuelve la cantidad de Pares de un Data Frame
+    
+    Arguments:
+        DF {[dataframe]}
+    """
+    n = DF.shape[0]
+    m = DF.shape[1]
+    
+    contador = 0
+    for i in range(n):
+        for j in range(m):
+            if DF.iloc[i,j] % 2 == 0:
+                contador = contador+1
+    return contador
+
+
+
 
     
