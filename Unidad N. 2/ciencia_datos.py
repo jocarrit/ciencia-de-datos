@@ -216,3 +216,17 @@ def estadisticas(DF, col1, col2):
           'Covarianza 2' : np.cov(DF.iloc[:,col2]),
           'Correlacion' : np.correlate(DF.iloc[:,col1], DF.iloc[:,col2])}
     
+def maximos(DF):
+    f = DF.shape[0]
+    c = DF.shape[1]
+    
+    maxFilas = []
+    maxCol = []
+
+
+
+    for i in range(c):
+        max = DF.iloc[0,c]
+        for j in range(f):
+            if j > max:
+                max = DF.iloc[]

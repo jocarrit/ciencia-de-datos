@@ -77,17 +77,17 @@ print('Dada la lista de numeros enteros: \n\n' + str(lista) + '\n\nEl promedio e
 
 #%% [markdown]
 # ## Ejercicio 8
-# Desarrolle una funci´on que calcula la varianza de una lista de n´umeros. No puede utilizar la
-# funci´on la funci´on sum, la funci´on mean ni la funci´on var
+# Desarrolle una funcion que calcula la varianza de una lista de numeros. No puede utilizar la
+# funcion la funcion sum, la funcion mean ni la funcion var
 #%%
 lista2 = [1, 8, 6, 4, 9, 7, 21, 32, 15, 10]
 print('Dada la lista de numeros enteros: \n\n' + str(lista2) + '\n\nLa varianza es: ' + str(cd.varianza(lista2)))
 
 #%% [markdown]
 # ## Ejercicio 9
-# Desarrolle una funci´on que calcula el costo de una llamada telef´onica que ha durado t minutos
-# sabiendo que si t < 1 el costo es de 0,4 d´olares, mientras que para duraciones superiores el
-# costo es de 0,4 + (t − 1)/4 d´olares, la funci´on debe recibir el valor de t
+# Desarrolle una funcion que calcula el costo de una llamada telefonica que ha durado t minutos
+# sabiendo que si t < 1 el costo es de 0,4 dolares, mientras que para duraciones superiores el
+# costo es de 0,4 + (t − 1)/4 dolares, la funcion debe recibir el valor de t
 #%%
 tiempo_de_llamada1 = 0.5
 tiempo_de_llamada2 = 2
@@ -99,7 +99,7 @@ print('Tiempo de llamada: ' + str(tiempo_de_llamada3) + ' minutos' + '\nCosto: $
 
 #%% [markdown]
 # ## Ejercicio 10
-# Desarrolle una funci´on que reciba un vector de n´umeros reales y un n´umero real x, tal que
+# Desarrolle una funcion que reciba un vector de numeros reales y un numero real x, tal que
 # indique el porcentaje de elementos mayores o iguales a un valor x.
 #%%
 y = [12, 4, 9, 7, 20, 32, 1, 6, 8, 15]
@@ -109,7 +109,7 @@ print('Dada la lista: \n' + str(y) + '\n El porcentaje de números mayores o igu
 
 #%% [markdown]
 # ## Ejercicio 11
-# Desarrolle una funci´on que reciba un n´umero natural n (suponiendo que n > 1) y que construya
+# Desarrolle una funcion que reciba un numero natural n (suponiendo que n > 1) y que construya
 # y retorne un vector v de tama˜no n tal que vk = vk−1/3 + 0,5 para k = 2, . . . , n y si endo que v1 = 1.
 #%%
 n = 8
@@ -117,7 +117,7 @@ print('Para un valor de n = ' + str(n) + '\nLos valores de k serían: \n' + str(
 
 #%% [markdown]
 # ## Ejercicio 12
-# Desarrolle una funci´on que recibe una matriz cuadrada A de tama˜no n × n y calcula su traza,
+# Desarrolle una funcion que recibe una matriz cuadrada A de tama˜no n × n y calcula su traza,
 # es decir, la suma de los elementos de la diagonal. Por ejemplo, la traza de la siguiente matriz:
 #%%
 A = [[9,3,4],[1,3,-1],[4,12,-2]]
@@ -126,7 +126,7 @@ print('La traza de la matriz: \n' + str(A) + '\n Es: ' + str(cd.traza(A)))
 
 #%% [markdown]
 # ## Ejercicio 13
-# Desarrolle una funci´on en Python que recibe un DataFrame que retorna la cantidad de entradas
+# Desarrolle una funcion en Python que recibe un DataFrame que retorna la cantidad de entradas
 # de este DataFrame que son divisibles entre 2
 #%%
 DF = pd.read_csv("datos.csv", delimiter=';', decimal=',')
@@ -135,9 +135,9 @@ print('Dado el DataFrame: \n\n' + str(DF) + '\n\nLa cantidad de numeros divisibl
 
 #%% [markdown]
 # ## Ejercicio 14
-# Desarrolle una funci´on en Python que recibe un DataFrame y dos n´umeros de columna y que
+# Desarrolle una funcion en Python que recibe un DataFrame y dos numeros de columna y que
 # retorna en un diccionario con el nombre de las variables correspondientes a las columnas, la
-# covarianza y la correlaci´on entre esas dos variables
+# covarianza y la correlacion entre esas dos variables
 #%%
 DF2 = pd.read_csv("EjemploEstudiantes.csv", delimiter=';', decimal=',')
 print(cd.estadisticas(DF2, 1, 3))
