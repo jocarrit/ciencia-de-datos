@@ -195,10 +195,24 @@ def cantPares(DF):
     for i in range(n):
         for j in range(m):
             if DF.iloc[i,j] % 2 == 0:
-                contador = contador+1
+                contador = contador + 1
     return contador
 
+def estadisticas(DF, col1, col2):
+    """Devuleve el nombre de variable, la covarianza y la correlacion de dos columnas de un Dataframe
+    
+    Arguments:
+        DF  {[pandas.DataFrame]}
+        col1    {[int]}
+        col2    {[int]}
 
+    Returns:
+        dictionaire
+    """
 
-
+    return {'Columna 1' : DF.columns.values[col1],
+            'Columna 2' : DF.columns.values[col2],
+          'Covarianza 1' : np.cov(DF.iloc[:,col1]),
+          'Covarianza 2' : np.cov(DF.iloc[:,col2]),
+          'Correlacion' : np.correlate(DF.iloc[:,col1], DF.iloc[:,col2])}
     
