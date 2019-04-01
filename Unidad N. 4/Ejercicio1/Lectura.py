@@ -1,4 +1,4 @@
-from Factura import Factura #, FactuaCredito, FacturaContado
+from Factura import Factura , FacturaCredito, FacturaContado
 import os
 
 class Lectura:
@@ -7,11 +7,11 @@ class Lectura:
         os.system('clear') #os.system('cls') #en windows
         factura.Captura()
         return factura
-    def LeeDatosFactuaCredito(self):
-        factuaCredito = FactuaCredito()
+    def LeeDatosFacturaCredito(self):
+        facturaCredito = FacturaCredito()
         os.system('clear') #os.system('cls') #en windows
-        factuaCredito.Captura()
-        return factuaCredito
+        facturaCredito.Captura()
+        return facturaCredito
     def LeeDatosFacturaContado(self):
         facturaContado = FacturaContado()
         os.system('clear') #os.system('cls') #en windows

@@ -84,11 +84,13 @@ class FacturaCredito(Factura):
     def plazoCredito(self, nuevo_plazo):
         self.__plazoCredito = nuevo_plazo
 
-    def __str__(self):
-        Factura.__str__(self)
+    #def __str__(self):
+    #    Factura.__str__(self)
+
 
     def Captura(self):
         Factura.Captura(self)
         self.plazoCredito = int(input("Plazo del crédito en meses: "))
 
-#class FacturaContado(Factura):
+class FacturaContado(Factura):
+    pass

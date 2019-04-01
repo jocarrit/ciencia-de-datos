@@ -31,9 +31,9 @@ class App:
             if respuesta == "1":
                 self.__lista.append(self.__lec.LeeDatosFactura())
             elif respuesta == "2":
-                self.__lista.append(self.__lec.LeeDatosFacturaCredito())
-            elif respuesta == "3":
                 self.__lista.append(self.__lec.LeeDatosFacturaContado())
+            elif respuesta == "3":
+                self.__lista.append(self.__lec.LeeDatosFacturaCredito())
             elif respuesta == "4":
                 self.__mostrarLista()
                 input("Digite cualquier tecla para continuar")
