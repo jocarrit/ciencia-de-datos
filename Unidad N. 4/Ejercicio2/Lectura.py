@@ -1,20 +1,20 @@
-from Factura import Factura , FacturaCredito, FacturaContado
+from Vuelo import Vuelo , VueloLocal, VueloInternacional, VueloCarga
 import os
 
 class Lectura:
-    def LeeDatosFactura(self):
-        factura = Factura()
+    def LeeDatosVueloLocal(self):
+        vuelo = VueloLocal()
         os.system('clear') #os.system('cls') #en windows
-        factura.Captura()
-        return factura
-    def LeeDatosFacturaCredito(self):
-        facturaCredito = FacturaCredito()
+        vuelo.Captura()
+        return vuelo
+    def LeeDatosVueloInternacional(self):
+        vueloInternacional = VueloInternacional()
         os.system('clear') #os.system('cls') #en windows
-        facturaCredito.Captura()
-        return facturaCredito
-    def LeeDatosFacturaContado(self):
-        facturaContado = FacturaContado()
+        vueloInternacional.Captura()
+        return vueloInternacional
+    def LeeDatosVueloCarga(self):
+        vueloCarga = VueloCarga()
         os.system('clear') #os.system('cls') #en windows
-        facturaContado.Captura()
-        return facturaContado
+        vueloCarga.Captura()
+        return vueloCarga
     

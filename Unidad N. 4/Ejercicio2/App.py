@@ -10,9 +10,9 @@ class App:
     def __menu(self):
         os.system('cls') #en windows
         print(" ==================================================== ")
-        print(" [1] Insertar Factura")
-        print(" [2] Insertar Factura Contado")
-        print(" [3] Insertar Factura Crédito")
+        print(" [1] Vuelo Local")
+        print(" [2] Vuelo Internacional")
+        print(" [3] Vuelo de Carga")
         print(" [4] Ver la Lista Polimórfica" )
         print(" [5] Borrar la Lista Polimórfica")
         print(" [6] Salir")
@@ -29,11 +29,11 @@ class App:
         while respuesta != "6":
             respuesta = self.__menu()
             if respuesta == "1":
-                self.__lista.append(self.__lec.LeeDatosFactura())
+                self.__lista.append(self.__lec.LeeDatosVueloLocal())
             elif respuesta == "2":
-                self.__lista.append(self.__lec.LeeDatosFacturaContado())
+                self.__lista.append(self.__lec.LeeDatosVueloInternacional())
             elif respuesta == "3":
-                self.__lista.append(self.__lec.LeeDatosFacturaCredito())
+                self.__lista.append(self.__lec.LeeDatosVueloCarga())
             elif respuesta == "4":
                 self.__mostrarLista()
                 input("Digite cualquier tecla para continuar")
