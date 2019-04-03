@@ -57,7 +57,7 @@ class Factura(Base):
 
         for i in range(self.numeroCompras):
             s = s +"\n"+ str(self.listaItems[i]) + "\n"
-        s = s + "\n================ \n\nMonto: %i \nImpuesto: %i \nTotal: %i \n"     
+        s = s + "\n================ \n\nMonto: %f \nImpuesto: %f \nTotal: %f \n"     
         
         return s % (self.cliente.nombre ,self.cliente.direccion, monto, (monto * self.porcentajeImpuesto), self.totalPagar())
 
@@ -84,13 +84,42 @@ class FacturaCredito(Factura):
     def plazoCredito(self, nuevo_plazo):
         self.__plazoCredito = nuevo_plazo
 
-    #def __str__(self):
-    #    Factura.__str__(self)
+    def __str__(self):
+        s ="Factura de crédito \n\nNombre de Cliente: %s\nDireccion: %s\nPlazo de crédito: %i meses\n\n=====Items=====\n"
+        monto = self.montoTotal()
 
+        for i in range(self.numeroCompras):
+            s = s +"\n"+ str(self.listaItems[i]) + "\n"
+        s = s + "\n================ \n\nMonto: %f \nImpuesto: %f \nTotal: %f \n"
+        return s % (self.cliente.nombre ,self.cliente.direccion, self.plazoCredito, monto, (monto * self.porcentajeImpuesto), self.totalPagar())
 
     def Captura(self):
         Factura.Captura(self)
         self.plazoCredito = int(input("Plazo del crédito en meses: "))
 
 class FacturaContado(Factura):
-    pass
+    def __init__(self, nombreCliente = "", direccion = "", porcentajeImpuesto = 0.13, totalPagar = 0, descuento = 0):
+        Factura.__init__(self, nombreCliente, direccion, porcentajeImpuesto)
+        self.__porcentajeDescuento = descuento
+    
+    @property
+    def descuento(self):
+        return self.__porcentajeDescuento
+    
+    @descuento.setter
+    def descuento(self, nuevo_descuento):
+        self.__porcentajeDescuento = nuevo_descuento
+
+    def __str__(self):
+        s ="Factura de contado \n\nNombre de Cliente: %s\nDireccion: %s\n\n=====Items=====\n"
+        monto = self.montoTotal()
+        descuento = self.descuento * monto
+
+        for i in range(self.numeroCompras):
+            s = s +"\n"+ str(self.listaItems[i]) + "\n"
+        s = s + "\n================ \n\nMonto: %f \nImpuesto: %f \nDescuento: %f \nTotal: %f \n"
+        return s % (self.cliente.nombre ,self.cliente.direccion, monto, (monto * self.porcentajeImpuesto), descuento, (self.totalPagar() - descuento))
+
+    def Captura(self):
+        Factura.Captura(self)
+        self.descuento = float(input("Porcentaje de descuento: "))

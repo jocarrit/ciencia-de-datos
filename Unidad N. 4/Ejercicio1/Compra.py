@@ -31,11 +31,11 @@ class Compra(Base):
         self.__monto = nuevo_monto
     
     def __str__(self):
-         return "Código: %i \nDescripción: %s \nMonto: %i" % (self.codigo, self.descripcion, self.monto)
+         return "Código: %i \nDescripción: %s \nMonto: %f" % (self.codigo, self.descripcion, self.monto)
     
     def Captura(self):
         self.codigo = int(input("Código: "))
         self.descripcion = input("Descripción: ")
-        self.monto = int(input("Monto: "))
+        self.monto = float(input("Monto: "))
 
     
