@@ -440,16 +440,56 @@ del Beijing['ID']
 del Beijing['Hora']
 del Beijing['Dia']
 del Beijing['Mes']
-dummies = pd.get_dummies(Beijing['Anno'])
+
+Beijing['Anno'] = Beijing['Anno'].astype(str)
+
+dummies = pd.get_dummies(Beijing)
+
 kmedias = KMeans(n_clusters=3, max_iter=5000, n_init=10)
-kmedias.fit(Beijing)
-print(kmedias.predict(Beijing))
+kmedias.fit(dummies)
+print(kmedias.predict(dummies))
 #%%
 centros = np.array(kmedias.cluster_centers_)
 print(centros)
 #%%
 plt.figure(1, figsize = (12, 8))
-bar_plot(centros, Beijing.columns)
+bar_plot(centros, dummies.columns)
 #%%
 plt.figure(1, figsize = (10, 10))
-radar_plot(centros, Beijing.columns)
+radar_plot(centros, dummies.columns)
+
+#%% [markdown]
+# ## Ejercicio # 4
+#%%
+class Exploratorio():
+    def __init__(self, dataframe = pd.DataFrame()):
+        self.__dataframe = dataframe
+        self.__comandos = []
+    
+    @property
+    def dataframe(self):
+        return self.__dataframe
+    
+    @dataframe.setter
+    def dataframe(self, nuevo_dataframe):
+        self.dataframe = nuevo_dataframe
+    
+    def analisis(self):
+        print(__encabezado())
+        print(__dimension())
+        print(__estadisticas())
+        print(__percentiles())
+        print(__v_atipicos())
+        print(__boxplot())
+        print(__dist_densidad())
+        print(__histogramas())
+        print(__test_normalidad())
+    
+    def __encabezado(self):
+        return self.dataframe.head()
+    
+    def __dimension(self):
+        return self.dataframe.describe()
+        
+    def __estadisticas(self):
+        return 
