@@ -5,6 +5,7 @@
 import os
 import pandas as pd
 import numpy as np
+import scipy
 from   math import pi
 import matplotlib.pyplot as plt
 from   sklearn.datasets import make_blobs
@@ -12,12 +13,14 @@ from   sklearn.decomposition import PCA
 from   sklearn.datasets import make_blobs
 from   sklearn.cluster import KMeans
 
+
 # Import the dendrogram function and the ward, single, complete, average, linkage and fcluster clustering function from SciPy
 from scipy.cluster.hierarchy import dendrogram, ward, single, complete,average,linkage, fcluster
 from scipy.spatial.distance import pdist
 
-#os.getcwd()
-os.chdir(r'c:\\Users\\jmc\\Documents\\Ciencia de datos con Python\\ciencia-de-datos\\Unidad N. 6')
+os.getcwd()
+#os.chdir(r'c:\\Users\\jmc\\Documents\\Ciencia de datos con Python\\ciencia-de-datos\\Unidad N. 6')
+os.chdir(r'c:\\Users\\jocarr3\\Documents\\projects\\ciencia de datos python\\Unidad N. 6')
 
 #%% [markdown]
 # ** Funciones
@@ -474,16 +477,25 @@ class Exploratorio():
     def dataframe(self, nuevo_dataframe):
         self.dataframe = nuevo_dataframe
     
-    def analisis(self):
-        print(__encabezado())
-        print(__dimension())
-        print(__estadisticas())
-        print(__percentiles())
-        print(__v_atipicos())
-        print(__boxplot())
-        print(__dist_densidad())
-        print(__histogramas())
-        print(__test_normalidad())
+    def analisis(self, var = []):
+        print("Encabezado \n")
+        print(self.__encabezado())
+        print("\nDimension\n")
+        print(self.__dimension())
+        print("\nMedia\n")
+        print(self.__estadisticas().Media)
+        print("\nMediana\n")
+        print(self.__estadisticas()['Mediana'])
+        print(self.__estadisticas()['DS'])
+        print(self.__estadisticas()['minimo'])
+        print(self.__estadisticas()['maximo'])
+        #print(self.__percentiles())
+        print(self.__boxplot())
+
+        for i in var:
+            print(self.__dist_densidad(var[i]))
+            print(self.__histograma(var[i]))
+            print(self.__test_normalidad(var[i]))
     
     def __encabezado(self):
         return self.dataframe.head()
@@ -492,4 +504,28 @@ class Exploratorio():
         return self.dataframe.describe()
         
     def __estadisticas(self):
-        return 
+        return {'Media' : self.dataframe.mean(numeric_only=True),
+                'Mediana' : self.dataframe.median(numeric_only=True),
+                'DS' : self.dataframe.std(numeric_only=True),
+                'minimo' : self.dataframe.min(numeric_only=True),
+                'maximo' : self.dataframe.max(numeric_only=True)}
+    
+    def __percentiles(self):
+        return self.dataframe.quantile(np.array([0,.25,.50,.75,1]))
+
+    def __boxplot(self):
+        return self.dataframe.boxplot(return_type='axes')
+    
+    def __dist_densidad(self, var):
+        return self.dataframe[var].plot(kind='density')
+    
+    def __histograma(self, var):
+        return self.dataframe[var].plot(kind='hist')
+    
+    def __test_normalidad(self, var):
+        return scipy.stats.shapiro(self.dataframe.dropna()[var])
+#%%
+Estudiantes = pd.read_csv('DatosClase\\EjemploEstudiantes.csv', ';')
+Exp = Exploratorio(Estudiantes)
+
+Exp.analisis()
