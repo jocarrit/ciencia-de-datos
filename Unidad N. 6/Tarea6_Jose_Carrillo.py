@@ -483,13 +483,18 @@ class Exploratorio():
         print("\nDimension\n")
         print(self.__dimension())
         print("\nMedia\n")
-        print(self.__estadisticas().Media)
+        print(self.__estadisticas().get('Media'))
         print("\nMediana\n")
-        print(self.__estadisticas()['Mediana'])
-        print(self.__estadisticas()['DS'])
-        print(self.__estadisticas()['minimo'])
-        print(self.__estadisticas()['maximo'])
-        #print(self.__percentiles())
+        print(self.__estadisticas().get('Mediana'))
+        print("\nDesviación estandar\n")
+        print(self.__estadisticas().get('DS'))
+        print("\nMínimo\n")
+        print(self.__estadisticas().get('minimo'))
+        print("\nMáximo\n")
+        print(self.__estadisticas().get('maximo'))
+        print("\nPercentiles\n")
+        print(self.__percentiles())
+        print("\nBox plot y datos atípicos\n")
         print(self.__boxplot())
 
         for i in var:
@@ -504,11 +509,11 @@ class Exploratorio():
         return self.dataframe.describe()
         
     def __estadisticas(self):
-        return {'Media' : self.dataframe.mean(numeric_only=True),
-                'Mediana' : self.dataframe.median(numeric_only=True),
-                'DS' : self.dataframe.std(numeric_only=True),
-                'minimo' : self.dataframe.min(numeric_only=True),
-                'maximo' : self.dataframe.max(numeric_only=True)}
+        return {'Media' : self.dataframe.mean(),
+                'Mediana' : self.dataframe.median(),
+                'DS' : self.dataframe.std(),
+                'minimo' : self.dataframe.min(),
+                'maximo' : self.dataframe.max()}
     
     def __percentiles(self):
         return self.dataframe.quantile(np.array([0,.25,.50,.75,1]))
@@ -522,10 +527,14 @@ class Exploratorio():
     def __histograma(self, var):
         return self.dataframe[var].plot(kind='hist')
     
-    def __test_normalidad(self, var):
-        return scipy.stats.shapiro(self.dataframe.dropna()[var])
+    #def __test_normalidad(self, var):
+    #    return scipy.stats.shapiro(self.dataframe.dropna()[var])
 #%%
-Estudiantes = pd.read_csv('DatosClase\\EjemploEstudiantes.csv', ';')
+Estudiantes = pd.read_csv('DatosClase\\EjemploEstudiantes.csv',  sep=';',decimal=',')
+print(Estudiantes.describe())
+
 Exp = Exploratorio(Estudiantes)
 
-Exp.analisis()
+Exp.analisis('Matematicas')
+
+#%%

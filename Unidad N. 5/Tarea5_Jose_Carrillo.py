@@ -14,7 +14,9 @@ import os
 # a) Cargar la tabla
 #%%
 #os.getcwd()
-os.chdir(r'c:\\Users\\jmc\\Documents\\Ciencia de datos con Python\\ciencia-de-datos\\Unidad N. 5')
+#os.chdir(r'c:\\Users\\jmc\\Documents\\Ciencia de datos con Python\\ciencia-de-datos\\Unidad N. 5')
+os.chdir(r'c:\\Users\\jocarr3\\Documents\\projects\\ciencia de datos python\\Unidad N. 5')
+
 datos = pd.read_csv('datos\\Titanic.csv')
 #%% [markdown]
 # b) Recodifique las variables cualitativas
