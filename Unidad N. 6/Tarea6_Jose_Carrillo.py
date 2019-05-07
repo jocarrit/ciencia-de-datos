@@ -19,8 +19,8 @@ from scipy.cluster.hierarchy import dendrogram, ward, single, complete,average,l
 from scipy.spatial.distance import pdist
 
 os.getcwd()
-#os.chdir(r'c:\\Users\\jmc\\Documents\\Ciencia de datos con Python\\ciencia-de-datos\\Unidad N. 6')
-os.chdir(r'c:\\Users\\jocarr3\\Documents\\projects\\ciencia de datos python\\Unidad N. 6')
+os.chdir(r'c:\\Users\\jmc\\Documents\\Ciencia de datos con Python\\ciencia-de-datos\\Unidad N. 6')
+#os.chdir(r'c:\\Users\\jocarr3\\Documents\\projects\\ciencia de datos python\\Unidad N. 6')
 
 #%% [markdown]
 # ** Funciones
@@ -83,8 +83,8 @@ def radar_plot(centros, labels):
 Importaciones = pd.read_csv('datosTarea\\ImportacionesMexico.csv', delimiter=';', decimal=',', index_col=0)
 print(Importaciones)
 #%% [markdown]
-# ** b) Ejecute un Clustering Jerarquico con la agregaci´on del Salto M´aximo, Salto M´ınimo,
-# Promedio y Ward. Grafique el dendograma con cortes para dos y tres cl´usteres.
+# ** b) Ejecute un Clustering Jerarquico con la agregacion del Salto Maximo, Salto Mınimo,
+# Promedio y Ward. Grafique el dendograma con cortes para dos y tres clusteres.
 #%%
 ward_res = ward(Importaciones)         #Ward
 single_res = single(Importaciones)     #Salto mínimo
@@ -150,8 +150,8 @@ plt.xlabel("Orden en el eje X")
 plt.ylabel("Distancia o Agregación")
 
 #%% [markdown]
-# ** c) Usando tres cl´usteres interprete los resultados del ejercicio anterior para el caso de 
-# agregaci´on de Ward mediante gr´aficos de barras y gr´aficos tipo Radar.
+# ** c) Usando tres clusteres interprete los resultados del ejercicio anterior para el caso de 
+# agregacion de Ward mediante graficos de barras y graficos tipo Radar.
 #%%
 grupos = fcluster(linkage(pdist(Importaciones), method = 'ward', metric='euclidean'), 3, criterion = 'maxclust')
 grupos = grupos-1
@@ -206,9 +206,9 @@ print(Padecimientos)
 
 
 #%% [markdown]
-# b)  Usando solamente las variables num´ericas, ejecute un Clustering Jer´arquico 
-# con la agregaci´on del Salto M´aximo, Salto M´ınimo, Promedio y Ward. 
-# Grafique el dendograma con cortes para dos y tres cl´usteres.
+# b)  Usando solamente las variables numericas, ejecute un Clustering Jerarquico 
+# con la agregacion del Salto Maximo, Salto Mınimo, Promedio y Ward. 
+# Grafique el dendograma con cortes para dos y tres clusteres.
 
 #%%
 ward_res = ward(Padecimientos)         #Ward
@@ -275,8 +275,8 @@ plt.xlabel("Orden en el eje X")
 plt.ylabel("Distancia o Agregación")
 
 #%% [markdown]
-# c) Usando 3 cl´usteres interprete los resultados del ejercicio anterior para el caso de agregaci´on
-# de Ward mediante gr´aficos de barras y gr´aficos tipo Radar.
+# c) Usando 3 clusteres interprete los resultados del ejercicio anterior para el caso de agregacion
+# de Ward mediante graficos de barras y graficos tipo Radar.
 #%%
 grupos = fcluster(linkage(pdist(Padecimientos), method = 'ward', metric='euclidean'), 3, criterion = 'maxclust')
 grupos = grupos-1
@@ -295,7 +295,7 @@ plt.figure(1, figsize = (10, 10))
 radar_plot(centros, Padecimientos.columns)
 
 #%% [markdown]
-# ## EUsando variables categoricas
+# ## Usando variables categoricas
 
 #%%
 Padecimientos = pd.read_csv('DatosClase\\SAheart.csv', ';')
@@ -304,9 +304,9 @@ print(dummies)
 
 
 #%% [markdown]
-# b)  Usando solamente las variables num´ericas, ejecute un Clustering Jer´arquico 
-# con la agregaci´on del Salto M´aximo, Salto M´ınimo, Promedio y Ward. 
-# Grafique el dendograma con cortes para dos y tres cl´usteres.
+# b)  Usando solamente las variables numericas, ejecute un Clustering Jerarquico 
+# con la agregacion del Salto Maximo, Salto Mınimo, Promedio y Ward. 
+# Grafique el dendograma con cortes para dos y tres clusteres.
 
 #%%
 ward_res = ward(dummies)         #Ward
@@ -373,8 +373,8 @@ plt.xlabel("Orden en el eje X")
 plt.ylabel("Distancia o Agregación")
 
 #%% [markdown]
-# c) Usando 3 cl´usteres interprete los resultados del ejercicio anterior para el caso de agregaci´on
-# de Ward mediante gr´aficos de barras y gr´aficos tipo Radar.
+# c) Usando 3 clusteres interprete los resultados del ejercicio anterior para el caso de agregacion
+# de Ward mediante graficos de barras y graficos tipo Radar.
 #%%
 grupos = fcluster(linkage(pdist(dummies), method = 'ward', metric='euclidean'), 3, criterion = 'maxclust')
 grupos = grupos-1
@@ -394,8 +394,8 @@ radar_plot(centros, dummies.columns)
 
 #%% [markdown]
 # ## Problema #3
-# a) Cargue la tabla de datos y ejecute un dropna().describe(), y encuentre la dimensi´on de
-# la tabla de datos (n´umero de filas y columnas) datos.shape, con esto verifique la correcta
+# a) Cargue la tabla de datos y ejecute un dropna().describe(), y encuentre la dimension de
+# la tabla de datos (numero de filas y columnas) datos.shape, con esto verifique la correcta
 # lectura de los datos
 #%%
 Beijing = pd.read_csv('DatosTarea\\DatosBeijing.csv', ',')
@@ -406,15 +406,15 @@ print(Beijing.describe())
 print(Beijing.shape)
 
 #%% [markdown]
-#%% b) Elimine las filas con NA. ¿Cu´antas filas se eliminaron?
+#%% b) Elimine las filas con NA. ¿Cuantas filas se eliminaron?
 #%%
 Beijing = Beijing.dropna()
 noNa = Beijing.shape[0]
 print("Se eliminaron " + str(withNa - noNa) + " filas")
 
 #%% [markdown]
-# c) Elimine de la tabla de datos la variable DireccionViento. ¿Por qu´e se debe eliminar?
-# ¿Qu´e otra alternativa se tiene en lugar de eliminarla?
+# c) Elimine de la tabla de datos la variable DireccionViento. ¿Por que se debe eliminar?
+# ¿Que otra alternativa se tiene en lugar de eliminarla?
 #%%
 del Beijing['DireccionViento']
 print(Beijing)
@@ -423,7 +423,7 @@ print(Beijing)
 # Existe la opcion de convertirla en variable dummy para ser utilizada como nuemrica
 
 #%% [markdown]
-# d) ¿Qu´e pasa si ejecutamos un clustering jer´arquico para esta tabla de datos. ¿Por qu´e sucede
+# d) ¿Que pasa si ejecutamos un clustering jerarquico para esta tabla de datos. ¿Por que sucede
 # esto?
 #%%
 #grupos = fcluster(linkage(pdist(Beijing), method = 'ward', metric='euclidean'), 3, criterion = 'maxclust')
@@ -467,7 +467,6 @@ radar_plot(centros, dummies.columns)
 class Exploratorio():
     def __init__(self, dataframe = pd.DataFrame()):
         self.__dataframe = dataframe
-        self.__comandos = []
     
     @property
     def dataframe(self):
@@ -477,43 +476,38 @@ class Exploratorio():
     def dataframe(self, nuevo_dataframe):
         self.dataframe = nuevo_dataframe
     
-    def analisis(self, var = []):
+    def analisis(self, var):
         print("Encabezado \n")
         print(self.__encabezado())
         print("\nDimension\n")
         print(self.__dimension())
         print("\nMedia\n")
-        print(self.__estadisticas().get('Media'))
+        print(self.__estadisticas()['Media'])
         print("\nMediana\n")
-        print(self.__estadisticas().get('Mediana'))
-        print("\nDesviación estandar\n")
-        print(self.__estadisticas().get('DS'))
+        print(self.__estadisticas()['Mediana'])
+        print("\nDesviación Estandar\n")
+        print(self.__estadisticas()['DS'])
         print("\nMínimo\n")
-        print(self.__estadisticas().get('minimo'))
-        print("\nMáximo\n")
-        print(self.__estadisticas().get('maximo'))
+        print(self.__estadisticas()['minimo'])
         print("\nPercentiles\n")
         print(self.__percentiles())
-        print("\nBox plot y datos atípicos\n")
-        print(self.__boxplot())
+        print("\nMáximo\n")
+        print(self.__estadisticas()['maximo'])
+        print("\nBoxplot\n")
+        box = self.__boxplot()
 
-        for i in var:
-            print(self.__dist_densidad(var[i]))
-            print(self.__histograma(var[i]))
-            print(self.__test_normalidad(var[i]))
-    
     def __encabezado(self):
         return self.dataframe.head()
     
     def __dimension(self):
-        return self.dataframe.describe()
+        return self.dataframe.shape
         
     def __estadisticas(self):
-        return {'Media' : self.dataframe.mean(),
-                'Mediana' : self.dataframe.median(),
-                'DS' : self.dataframe.std(),
-                'minimo' : self.dataframe.min(),
-                'maximo' : self.dataframe.max()}
+        return {'Media' : self.dataframe.mean(numeric_only=True),
+                'Mediana' : self.dataframe.median(numeric_only=True),
+                'DS' : self.dataframe.std(numeric_only=True),
+                'minimo' : self.dataframe.min(numeric_only=True),
+                'maximo' : self.dataframe.max(numeric_only=True)}
     
     def __percentiles(self):
         return self.dataframe.quantile(np.array([0,.25,.50,.75,1]))
@@ -527,14 +521,12 @@ class Exploratorio():
     def __histograma(self, var):
         return self.dataframe[var].plot(kind='hist')
     
-    #def __test_normalidad(self, var):
-    #    return scipy.stats.shapiro(self.dataframe.dropna()[var])
+    def __test_normalidad(self, var):
+        return scipy.stats.shapiro(self.dataframe.dropna()[var])
 #%%
-Estudiantes = pd.read_csv('DatosClase\\EjemploEstudiantes.csv',  sep=';',decimal=',')
-print(Estudiantes.describe())
-
+Estudiantes = pd.read_csv('DatosClase\\EjemploEstudiantes.csv', ';', decimal=',')
 Exp = Exploratorio(Estudiantes)
 
-Exp.analisis('Matematicas')
+var = ['Matematicas', 'Ciencias']
 
-#%%
+Exp.analisis(var)
